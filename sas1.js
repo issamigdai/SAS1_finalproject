@@ -198,39 +198,26 @@ function displayTrips(){
 const tickets = [];
 
 function buyTicket(){
-        let Id = Number(prompt('enter the trip Id: '));
-        let name = prompt('enter your name: ');
-        let place = Number(prompt('enter the number of places you want: '));
-        let ticket = 0
-        for(let i=0 ; i < trips.length ; i++){
-             ticket = trips[i] ;
-             if(ticket.id === Id){
-                if(ticket.availableSeats >= place){
-                   const ticketContent = {
-                       tripId: `${Id}`,
-                       passanger: `${name}`,
-                       trajet: `${ticket.departure} → ${ticket.destination}`,
-                       departure:`${ticket.departureTime}`,
-                       arrival:`${ticket.arrivalTime}`,
-                       seats: `${place}`,
-                       price: `${ticket.price}`
-                   }
-                   console.log('=============TICKETS============');
-                   console.log('tripId: ' + ticketContent.tripId);
-                   console.log('passanger: ' + ticketContent.passanger);
-                   console.log('trajet:: ' + ticketContent.trajet);
-                   console.log('place: ' + ticketContent.seats);
-                   console.log('prix: ' + ticketContent.price);
-                   console.log('================================');
-                } else{
-                    console.log("Not enough available seats.");
-                    break;
-                }                  
-            }else{
-                console.log('their is no trip with this id !!');
-                break;
+    let tripId = Number(prompt('enter your wanted trip id: '));
+    let passangerName = prompt('enter your name: ');
+    let ticketid = tickets.length + 1;
+    for(let i=0 ; i < trips.length ; i++){
+        let trip = trips[i]
+        if(tripId === trip.id){
+            if(trip.availableSeats > 0){
+               const ticketContent = {
+                    tripid: `${trip.id}`,
+                    ticketId: `${ticketid}`,
+                    passangerName: `${passangerName}`,
+                    departure: `${trip.departure}`,
+                    destination: `${trip.destination}`,
+                    price: `${trip.price}`
+                }
+                tickets.push(ticketContent);
+                trip.availableSeats--;
             }
-       }
+        }
+    }
 }
              
 
@@ -254,5 +241,8 @@ if(choice === 1){
     displayTrips();
 }else if(choice === 2){
     buyTicket();
+}else if(choice === 3){
+
+    
 }
 
