@@ -195,12 +195,23 @@ function displayTrips(){
          console.log('==========================================');
      }
 }
+
+function displayTrip(Id){
+     console.log('================ticket================');
+                let ticket = tickets[Id - 1];
+         console.log(`#${ticket.tripid} ${ticket.departure} →${ticket.destination}`);
+         console.log(`Départ :${ticket.departure}`);
+         console.log(`Arrivée :${ticket.destination}`);
+         console.log(`Prix :${ticket.price}`);
+         console.log('==========================================');
+}
 const tickets = [];
 
 function buyTicket(){
     let tripId = Number(prompt('enter your wanted trip id: '));
     let passangerName = prompt('enter your name: ');
     let ticketid = tickets.length + 1;
+    
     for(let i=0 ; i < trips.length ; i++){
         let trip = trips[i]
         if(tripId === trip.id){
@@ -218,6 +229,7 @@ function buyTicket(){
             }
         }
     }
+    displayTrip(ticketid);
 }
              
 
