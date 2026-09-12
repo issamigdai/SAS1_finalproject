@@ -1,6 +1,6 @@
 const prompt = require('prompt-sync')();
 
-//trips
+
 const trips = [
     {
         id: 1,
@@ -184,7 +184,7 @@ const trips = [
     }
 ];
 
-//afficher trajets
+
 function AfficherTrajet(){
          console.log("       === TRAJETS DISPONIBLES === ")
 
@@ -199,7 +199,7 @@ function AfficherTrajet(){
         }
 };
 
-// acheter tiket
+
 let seatNumber = 1
 let ticketid = 1
 const tickets =[];
@@ -244,7 +244,7 @@ console.log(`
         return;
 }
         
-//afficher tiket
+
 function AfficherTikets(){
         if ( tickets.length === 0){
                 console.log("Aucun ticket enregistré. ")
@@ -268,7 +268,7 @@ function AfficherTikets(){
         }
 }
 
-//annuler ticket 
+
 function AnnulerTiket(){
 
     let annuler = Number(prompt("Identifiant du ticket : "));
@@ -296,7 +296,7 @@ function AnnulerTiket(){
     console.log("Ticket introuvable.");
 }
 
-//chercher
+
 function RechercherTicket(){
     let search = prompt("Nom du passager : ")
     for ( let i = 0 ; i < tickets.length ; i++){
@@ -313,7 +313,7 @@ function RechercherTicket(){
     console.log( `Aucun tiket sous le nom ${search}`);
 }
 
-//filter
+
 function FiltrerTrajets(){
     let filter = prompt(" Ville de départ : ")
     for( let i = 0 ; i < trips.length ; i++){
@@ -322,8 +322,6 @@ function FiltrerTrajets(){
         }
     }
 }
-
-//trier
 function TrierTrajets(){
     
     for ( let i = 0 ; i < (trips.length) - 1 ; i++){
@@ -341,7 +339,7 @@ function TrierTrajets(){
     }
 }
 
-//stats
+
 function Statistiques(){
     console.log("==Total de tickets vendus==");
 
